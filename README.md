@@ -1,6 +1,6 @@
-# VehicleBuilder
-
-## Description
+# <VehicleBuilder>
+  
+  ## Description
   
   This is a tool using JavaScript and NODE to generate different vehicles, save them to a list, and allow you to manipulate them in several different ways after they have been created.
   
@@ -23,7 +23,7 @@
 
   ## Usage
   
-  This program is intended to catalogue different vehicles, save their details, and place them into sample scenarios (such as towing capability or the ability to do a wheelie) and to see the results based on the vehicle you have chosen.
+  This program is intended to catalogue different vehicles, save their details, and place them into sample scenarios to see results.
       
   
   ## Credits
@@ -51,3 +51,4 @@
   These are the tests you can run to troubleshoot!
   
   none
+  
