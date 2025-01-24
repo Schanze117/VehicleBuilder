@@ -55,7 +55,7 @@ class Motorbike extends Vehicle {
   override printDetails(): void {
     //call the printDetails method of the Vehicle class
     super.printDetails();
-    
+
     // This logs the details of the Motorbike
     console.log(`VIN: ${this.vin}`);
     console.log(`Color: ${this.color}`);
