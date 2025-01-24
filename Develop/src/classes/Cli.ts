@@ -68,8 +68,10 @@ class Cli {
         if (answers.vehicleType === 'Truck') {
           this.createTruck();
         }
-        
-        // TODO: add statements to create a truck or motorbike if the user selects the respective vehicle type
+        // create a motorbike
+        if (answers.vehicleType === 'Motorbike'){
+          this.createMotorbike();
+        }
       });
   }
 
@@ -110,7 +112,6 @@ class Cli {
       ])
       .then((answers) => {
         const car = new Car(
-          // TODO: The generateVin method is static and should be called using the class name Cli, make sure to use Cli.generateVin() for creating a truck and motorbike as well!
           Cli.generateVin(),
           answers.color,
           answers.make,
@@ -120,6 +121,16 @@ class Cli {
           parseInt(answers.topSpeed),
           []
         );
+          const motorbike = new Motorbike(
+            Cli.generateVin(),
+            answers.color,
+            answers.make,
+            answers.model,
+            parseInt(answers.year),
+            parseInt(answers.weight),
+            parseInt(answers.topSpeed),
+            []
+          )
         // push the car to the vehicles array
         this.vehicles.push(car);
         // set the selectedVehicleVin to the vin of the car
@@ -170,10 +181,23 @@ class Cli {
         },
       ])
       .then((answers) => {
-        // TODO: Use the answers object to pass the required properties to the Truck constructor
-        // TODO: push the truck to the vehicles array
-        // TODO: set the selectedVehicleVin to the vin of the truck
-        // TODO: perform actions on the truck
+        const truck = new Truck(
+          Cli.generateVin(),
+          answers.color,
+          answers.make,
+          answers.model,
+          parseInt(answers.year),
+          parseInt(answers.weight),
+          parseInt(answers.topSpeed),
+          [],
+          parseInt(answers.towingCapacity)
+        );
+        // Pushes the truck to the vehicles array
+        this.vehicles.push(truck);
+        // Sets the selectedVehicleVin to the vin of the truck
+        this.selectedVehicleVin = truck.vin;
+        // Performs actions on the truck
+        this.performActions();
       });
   }
 
@@ -233,10 +257,22 @@ class Cli {
         },
       ])
       .then((answers) => {
-        // TODO: Use the answers object to pass the required properties to the Motorbike constructor
-        // TODO: push the motorbike to the vehicles array
-        // TODO: set the selectedVehicleVin to the vin of the motorbike
-        // TODO: perform actions on the motorbike
+        const motorbike = new Motorbike(
+          Cli.generateVin(),
+          answers.color,
+          answers.make,
+          answers.model,
+          parseInt(answers.year),
+          parseInt(answers.weight),
+          parseInt(answers.topSpeed),
+          []
+        )
+        // Pushes the motorbike to the vehicles array
+        this.vehicles.push(motorbike);
+        // Sets the selectedVehicleVin to the vin of the motorbike
+        this.selectedVehicleVin = motorbike.vin;
+        // Perform actions on the motorbike
+        this.performActions();
       });
   }
 
@@ -272,7 +308,6 @@ class Cli {
           type: 'list',
           name: 'action',
           message: 'Select an action',
-          // TODO: add options to tow and wheelie
           choices: [
             'Print details',
             'Start vehicle',
@@ -284,6 +319,8 @@ class Cli {
             'Reverse',
             'Select or create another vehicle',
             'Exit',
+            'Tow',
+            'Wheelie'
           ],
         },
       ])
