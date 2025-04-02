@@ -2,7 +2,7 @@
   
   ## Description
   
-  This is a tool using JavaScript and NODE to generate different vehicles, save them to a list, and allow you to manipulate them in several different ways after they have been created.
+  This is a tool using TypeScript and NODE to generate different vehicles, save them to a list, and allow you to manipulate them in several different ways after they have been created.
   
   ## Table of Contents 
   
@@ -22,6 +22,13 @@
   ~
 
   ## Usage
+
+  In order to run the application in the command line type in the following commands.
+  ~
+  npm run build
+  ~
+  npm start
+  ~
   
   This program is intended to catalogue different vehicles, save their details, and place them into sample scenarios to see results.
       
